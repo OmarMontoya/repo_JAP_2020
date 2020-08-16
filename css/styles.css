@@ -139,3 +139,31 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+.titulo {
+  text-align: center;
+  margin: 25px;
+}
+
+.main {
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: row;
+}
+
+.main .imagen {
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  padding: 3px;
+  margin: 9px 25px 5px 22px;
+  width: 225px;    
+}
+
+.main .caja-text {
+  padding: 5px;
+}
+
+.main:hover {
+  background-color: rgb(243, 242, 242);
+}
