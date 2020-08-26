@@ -40,8 +40,21 @@ var getJSONData = function(url){
     });
 }
 
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  let user_login = localStorage.getItem("Log_user");
+  let login = document.getElementById("logueo");
+  let user = document.getElementById("usuario");
+
+  if (user_login) {
+    user_login = JSON.parse(user_login);
+    user.innerText = user.innerText + "Usuario: " + user_login.email;
+    login.style = "display: inline-block";
+  }
+
+  document.getElementById("salir").addEventListener("click", function () {
+    localStorage.removeItem("Log_user");
+    window.location = "login.html";
+  });
 });
