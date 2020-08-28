@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(e){
 
-  document.getElementById("enviar").document.addEventListener("click", function() {
+  document.getElementById("enviar").addEventListener("click", function() {
 
             let correo = document.getElementById("email");
             let password = document.getElementById("password");

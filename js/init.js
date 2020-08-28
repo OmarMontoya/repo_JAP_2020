@@ -52,8 +52,8 @@ document.addEventListener("DOMContentLoaded", function () {
     login.style = "display: inline-block";
   }
 
-  /* document.getElementById("salir").addEventListener("click", function () {
+  document.getElementById("salir").addEventListener("click", function () {
     localStorage.removeItem("regUser");
     window.location = "index.html";
-  }); */
+  });
 });
