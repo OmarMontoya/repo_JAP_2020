@@ -41,11 +41,10 @@ var getJSONData = function(url){
 }
 
 
-
 document.addEventListener("DOMContentLoaded", function () {
-  let user_login = localStorage.getItem("Log_user");
-  let login = document.getElementById("logueo");
-  let user = document.getElementById("usuario");
+  let user_login = localStorage.getItem("regUser");
+  let login = document.getElementById("contenedor");
+  let user = document.getElementById('usuario');
 
   if (user_login) {
     user_login = JSON.parse(user_login);
@@ -53,8 +52,8 @@ document.addEventListener("DOMContentLoaded", function () {
     login.style = "display: inline-block";
   }
 
-  document.getElementById("salir").addEventListener("click", function () {
-    localStorage.removeItem("Log_user");
-    window.location = "login.html";
-  });
+  /* document.getElementById("salir").addEventListener("click", function () {
+    localStorage.removeItem("regUser");
+    window.location = "index.html";
+  }); */
 });

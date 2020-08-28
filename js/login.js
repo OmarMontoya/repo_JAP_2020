@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(e){
 
-  
-        document.getElementById("enviar").document.addEventListener("click", function (e) {
+  document.getElementById("enviar").document.addEventListener("click", function() {
 
             let correo = document.getElementById("email");
             let password = document.getElementById("password");
@@ -16,8 +15,14 @@ document.addEventListener("DOMContentLoaded", function(e){
             }
 
             if(camposLlenos) {
-              window.location = "inicio.html";
+              
+                localStorage.setItem("regUser", JSON.stringify({email: correo.value}));
+                window.location = 'inicio.html';
+                    
+            } else {
+              alert('Debes ingresar los datos!');
             }
 
           });
+
 });
