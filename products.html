@@ -1,60 +1,82 @@
 <!DOCTYPE html>
 <!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <title>eMercado - Todo lo que busques está aquí</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
-  </head>
-  <body>
-    <nav class="site-header sticky-top py-1 bg-dark">
-      <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <a class="py-2 d-none d-md-inline-block" href="inicio.html">Inicio</a>
-        <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-        <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>eMercado - Todo lo que busques está aquí</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="site-header sticky-top py-1 bg-dark">
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+      <a class="py-2 d-none d-md-inline-block" href="inicio.html">Inicio</a>
+      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <div id="contenedor" style="display: none;">
+        <p id="usuario"></p>
+        <input type="button" id="salir" value="Salir" />
       </div>
-    </nav>
-
-    <!--Se procede a eliminar el texto con la fecha de entrega y se inserta lo referente a los productos-->
-    <h2 class="titulo">
-      Productos
-    </h2>
-    <div class="filtro">
-      <h3>Filtro de página</h3>
-
-      <input type="button" id="Pag-Desc" class="btn-filter" value="Costo Desc">
-      <input type="button" id="Pag-Asc" class="btn-filter" value="Costo Asc">
-      <input type="button" id="Id-Desc" class="btn-filter" value="Cant Vend Desc"> <br><br>
-      <input id="minimo" type="number" placeholder="mínimo" /><br /><br />
-      <input id="maximo" type="number" placeholder="máximo" /><br /><br />
-      <input id="filtrar" type="button" value="Filtrar" />
-      <input id="limpiar" type="button" value="Limpiar" />
     </div>
-    <div id="caja" class="container p-5">
-      
+  </nav>
+
+  <!--Se procede a eliminar el texto con la fecha de entrega y se inserta lo referente a los productos-->
+  <h2 class="titulo">
+    Productos
+  </h2>
+  <p class="parrafo">
+    Verás aquí todos los productos de la lista Autos
+  </p>
+  <br>
+  <div class="filtro">
+    <div class="filtro-1">
+      <input type="button" id="Costo-Desc" class="btn-filter" value="Costo Desc">
+      <input type="button" id="Costo-Asc" class="btn-filter" value="Costo Asc">
+      <input type="button" id="Cant-Vend-Desc" class="btn-filter" value="Cant Vend Desc">
     </div>
-    <footer class="text-muted bg-light">
-      <div class="container">
-        <p class="float-right">
-          <a href="#">Volver arriba</a>
-        </p>
-        <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-        <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-      </div>
-    </footer>
-    <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/init.js"></script>
-    <script src="js/products.js"></script>
-  </body>
+    <div class="filtro-2">
+      <input id="buscador" class="filtro-2-2" type="text">
+      <input id="borrar" class="filtro-2-2 btn-filter-2" type="button" value="Borrar">
+      <input id="minimo" class="filtro-2-2" type="number" placeholder="mínimo" />
+      <input id="maximo" class="filtro-2-2" type="number" placeholder="máximo" />
+      <input id="filtrar" class="filtro-2-2 btn-filter-2" type="button" value="Filtrar" />
+      <input id="limpiar" class="filtro-2-2 btn-filter-2" type="button" value="Limpiar" />
+    </div>
+  </div>
+  <div id="caja" class="container p-5">
+
+  </div>
+  <footer class="text-muted bg-light">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+  </footer>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/products.js"></script>
+</body>
+
 </html>

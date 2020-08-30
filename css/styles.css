@@ -151,6 +151,7 @@ a.custom-card:hover {
   display: flex;
   flex-direction: row;
   align-items: stretch;
+  width: 1100px;
 }
 
 .main .imagen {
@@ -167,4 +168,56 @@ a.custom-card:hover {
 
 .main:hover {
   background-color: rgb(243, 242, 242);
+}
+
+#usuario {
+  color: white;
+}
+
+#salir {
+  border-radius: 5px;
+  margin: auto;
+}
+
+.filtro-1 {
+  display: flex;
+  justify-content: flex-end;
+  margin: 5px;
+}
+
+.filtro-2 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.filtro-2-2 {
+  margin: 6px;
+  border-radius: 5px;
+  padding: 3px;
+  width: 100px;
+}
+
+.btn-filter {
+  border-radius: 5px;
+  margin: 4px;
+  border: none;
+}
+
+.btn-filter-2 {
+  border-radius: 5px;
+  width: 70px;
+  border: none;
+}
+
+.parrafo {
+  font-size: larger;
+  text-align: center;
+}
+
+.btn-filter:hover {
+  background-color: rgb(207, 204, 204);
+}
+
+.btn-filter-2:hover {
+  background-color: rgb(207, 204, 204);
 }

@@ -4,7 +4,7 @@ var maxPrecio = undefined;
 var buscar = undefined;
 const DESCENDENTE = 'Desc';
 const ASCENDENTE = 'Asc';
-const ID_DESCENDENTE = 'Id_Desc';
+const SOLD_DESCENDENTE = 'Sold_Desc';
 
 
 function mostrarListaAutos(array){
@@ -18,22 +18,30 @@ function mostrarListaAutos(array){
         if (((minPrecio == undefined) || (minPrecio != undefined && parseInt(lista.cost) >= minPrecio))
             && ((maxPrecio == undefined) || (maxPrecio != undefined && parseInt(lista.cost) <= maxPrecio))) {
 
-        contenidoNuevo +=`
-        <div class="main">
-            <div class="caja-img">
-                <img class="imagen" src="`+ lista.imgSrc +`" alt="">
-            </div> 
-            <div class="caja-text">
-                <p>Nombre: `+ lista.name +`</p>
-                <p>Descripción: `+ lista.description +`</p>
-                <p>Costo: `+ lista.cost +`</p> 
-                <p>Moneda: `+ lista.currency +`</p>
+        /*Código para filtrar en tiempo real*/
+
+        if ((buscar == undefined) || (lista.name.toLowerCase().indexOf(buscar) != -1)) {
+
+            contenidoNuevo +=`
+            <div class="main">
+                <div class="caja-img">
+                    <img class="imagen" src="`+ lista.imgSrc +`" alt="">
+                </div> 
+                <div class="caja-text">
+                    <p>Nombre: `+ lista.name +`</p>
+                    <p>Descripción: `+ lista.description +`</p>
+                    <p>Costo: `+ lista.cost +`</p> 
+                    <p>Moneda: `+ lista.currency +`</p>
+                </div>
+                <div class="caja-sold">
+                    <small>Cantidad vendida: `+ lista.soldCount +`</small>
+                </div>
             </div>
-            <div class="caja-sold">
-                <small>Cantidad vendida: `+ lista.soldCount +`</small>
-            </div>
-        </div>
-        `
+            `
+
+        }
+        
+        
         }
 
         document.getElementById("caja").innerHTML = contenidoNuevo;
@@ -55,7 +63,7 @@ function filtrarAutos(criterio, array) {
         autosArray = array.sort(function(a,b) {
             return a.cost-b.cost;
         });
-    } else if (criterio === ID_DESCENDENTE) {
+    } else if (criterio === SOLD_DESCENDENTE) {
         autosArray = array.sort(function(a,b) {
             return b.soldCount-a.soldCount;
         });
@@ -107,25 +115,37 @@ document.addEventListener("DOMContentLoaded", function (e) {
         mostrarListaAutos(autos);
     })
 
-    document.getElementById('Pag-Desc').addEventListener('click', function() {
+    document.getElementById('Costo-Desc').addEventListener('click', function() {
 
         autos = filtrarAutos(DESCENDENTE,autos);
 
         mostrarListaAutos(autos);   
     })
 
-    document.getElementById('Pag-Asc').addEventListener('click', function() {
+    document.getElementById('Costo-Asc').addEventListener('click', function() {
 
         autos = filtrarAutos(ASCENDENTE,autos);
 
         mostrarListaAutos(autos);   
     })
 
-    document.getElementById('Id-Desc').addEventListener('click', function() {
+    document.getElementById('Cant-Vend-Desc').addEventListener('click', function() {
 
-        autos = filtrarAutos(ID_DESCENDENTE,autos);
+        autos = filtrarAutos(SOLD_DESCENDENTE,autos);
 
         mostrarListaAutos(autos);   
     })
 
+    document.getElementById('buscador').addEventListener('input', function(){
+        
+        buscar = document.getElementById('buscador').value;
+        mostrarListaAutos(autos);
+    })
+
+    document.getElementById('borrar').addEventListener('click', function(){
+
+        document.getElementById('buscador').value = '';
+        buscar = undefined;
+        mostrarListaAutos(autos)
+    })
 });
