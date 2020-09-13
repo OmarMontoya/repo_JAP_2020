@@ -10,6 +10,7 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -29,13 +30,24 @@
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 13/09/2020) y Entrega 4 (Fecha de entrega: 20/09/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+  <h2 class="titulo">Información del Producto</h2>
+  <br><br>
+  <div id="auto-info" class="auto-info"></div>
+  <div id="auto-img" class="auto-img"></div>
+  <div id="auto-comm" class="auto-comm"></div>
+  <div id="comm-ctrl" class="comm-ctrl">
+    <p>Déjanos tu comentario!</p>
+                        <textarea id='frameText' rows='5' cols='40'></textarea>
+                        <label for='puntaje'>Puntaje</label>
+                        <select id='puntaje' name='puntaje'>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3'>3</option>
+                            <option value='4'>4</option>
+                            <option value='5'>5</option>
+                        </select>
+                        <br><br>
+                        <button id='sendComm' class="sendComm">Enviar comentario</button>
   </div>
   <footer class="text-muted">
     <div class="container">

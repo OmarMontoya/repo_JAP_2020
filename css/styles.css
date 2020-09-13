@@ -138,6 +138,7 @@ a.custom-card:hover {
 
 .checked {
   color: orange;
+  font-size: 20px;
 }
 
 .titulo {
@@ -149,9 +150,8 @@ a.custom-card:hover {
   border: 1px solid lightgray;
   border-radius: 3px;
   display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  width: 1100px;
+  width: 1050px;
+  margin: auto;
 }
 
 .main .imagen {
@@ -176,7 +176,11 @@ a.custom-card:hover {
 
 #salir {
   border-radius: 5px;
-  margin: auto;
+  border: none;
+}
+
+#salir:hover {
+  background-color: rgb(223, 223, 223);
 }
 
 .filtro-1 {
@@ -220,4 +224,37 @@ a.custom-card:hover {
 
 .btn-filter-2:hover {
   background-color: rgb(207, 204, 204);
+}
+
+.checked {
+  color: orange;
+}
+
+.auto-img {
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 1100px;
+  margin: auto;
+}
+
+.auto-info, .auto-comm, .comm-ctrl {
+  border-radius: 3px;
+  display: block;
+  margin: auto;
+  width: 1100px;
+}
+
+.sendComm {
+  border-radius: 5px;
+  background-color: rgb(240, 239, 239);
+  border: none;
+}
+
+.sendComm:hover {
+  background-color: rgb(167, 167, 167);
+  color: white;
+  border: 1px solid black;
 }

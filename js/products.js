@@ -23,20 +23,22 @@ function mostrarListaAutos(array){
         if ((buscar == undefined) || (lista.name.toLowerCase().indexOf(buscar) != -1)) {
 
             contenidoNuevo +=`
+            <a href='product-info.html' class=" list-group-item-action">
             <div class="main">
-                <div class="caja-img">
-                    <img class="imagen" src="`+ lista.imgSrc +`" alt="">
-                </div> 
-                <div class="caja-text">
-                    <p>Nombre: `+ lista.name +`</p>
-                    <p>Descripción: `+ lista.description +`</p>
-                    <p>Costo: `+ lista.cost +`</p> 
-                    <p>Moneda: `+ lista.currency +`</p>
-                </div>
-                <div class="caja-sold">
-                    <small>Cantidad vendida: `+ lista.soldCount +`</small>
-                </div>
+            <div class="caja-img">
+                <img class="imagen" src="`+ lista.imgSrc +`" alt="">
+            </div> 
+            <div class="caja-text">
+                <p><strong>Nombre: </strong>`+ lista.name +`</p>
+                <p><strong>Descripción: </strong>`+ lista.description +`</p>
+                <p><strong>Costo: </strong>`+ lista.cost +`</p> 
+                <p><strong>Moneda: </strong>`+ lista.currency +`</p>
             </div>
+            <div class="caja-sold">
+                <small>Cantidad vendida: `+ lista.soldCount +`</small>
+            </div>
+            </div>
+            </a>
             `
 
         }
@@ -148,4 +150,5 @@ document.addEventListener("DOMContentLoaded", function (e) {
         buscar = undefined;
         mostrarListaAutos(autos)
     })
+
 });
