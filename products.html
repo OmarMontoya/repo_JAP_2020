@@ -22,10 +22,17 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
       <div id="contenedor" style="display: none;">
-        <p id="usuario"></p>
-        <input type="button" id="salir" value="Salir" />
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <p id="usuario"></p>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
+            <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+            <a class="dropdown-item" id="salir" href="#">Cerrar sesión</a>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
@@ -38,24 +45,27 @@
     Verás aquí todos los productos de la lista Autos
   </p>
   <br>
-  <div class="filtro">
-    <div class="filtro-1">
-      <input type="button" id="Costo-Desc" class="btn-filter" value="Costo Desc">
-      <input type="button" id="Costo-Asc" class="btn-filter" value="Costo Asc">
-      <input type="button" id="Cant-Vend-Desc" class="btn-filter" value="Cant Vend Desc">
+  <div class="caja-main">
+    <div class="filtro">
+      <div class="filtro-1">
+        <input type="button" id="Costo-Desc" class="btn-filter" value="Costo Desc">
+        <input type="button" id="Costo-Asc" class="btn-filter" value="Costo Asc">
+        <input type="button" id="Cant-Vend-Desc" class="btn-filter" value="Cant Vend Desc">
+      </div>
+      <div class="filtro-2">
+        <input id="buscador" class="filtro-2-2" type="text">
+        <input id="borrar" class="filtro-2-2 btn-filter-2" type="button" value="Borrar">
+        <input id="minimo" class="filtro-2-2" type="number" placeholder="mínimo" />
+        <input id="maximo" class="filtro-2-2" type="number" placeholder="máximo" />
+        <input id="filtrar" class="filtro-2-2 btn-filter-2" type="button" value="Filtrar" />
+        <input id="limpiar" class="filtro-2-2 btn-filter-2" type="button" value="Limpiar" />
+      </div>
     </div>
-    <div class="filtro-2">
-      <input id="buscador" class="filtro-2-2" type="text">
-      <input id="borrar" class="filtro-2-2 btn-filter-2" type="button" value="Borrar">
-      <input id="minimo" class="filtro-2-2" type="number" placeholder="mínimo" />
-      <input id="maximo" class="filtro-2-2" type="number" placeholder="máximo" />
-      <input id="filtrar" class="filtro-2-2 btn-filter-2" type="button" value="Filtrar" />
-      <input id="limpiar" class="filtro-2-2 btn-filter-2" type="button" value="Limpiar" />
+    <div id="caja" class="container p-5">
+  
     </div>
   </div>
-  <div id="caja" class="container p-5">
-
-  </div>
+  
   <footer class="text-muted bg-light">
     <div class="container">
       <p class="float-right">

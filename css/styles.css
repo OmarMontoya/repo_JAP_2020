@@ -232,11 +232,10 @@ a.custom-card:hover {
 
 .auto-img {
   border: 1px solid lightgray;
-  border-radius: 3px;
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  width: 1100px;
+  border-radius: 2px;
+  display: block;
+  margin: auto;
+  width: 700px;
   margin: auto;
 }
 
@@ -257,4 +256,17 @@ a.custom-card:hover {
   background-color: rgb(167, 167, 167);
   color: white;
   border: 1px solid black;
+}
+
+.dropdown-item:active {
+  background-color: lightgray
+}
+
+.btn {
+  line-height: 0.5;
+}
+
+.caja-main {
+  display: block;
+  margin: auto;
 }

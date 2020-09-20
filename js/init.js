@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (user_login) {
     user_login = JSON.parse(user_login);
-    user.innerText = user.innerText + "Usuario: " + user_login.email;
+    user.innerText = user.innerText + user_login.email;
     login.style = "display: inline-block";
   }
 
