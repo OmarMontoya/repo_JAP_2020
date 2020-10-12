@@ -31,6 +31,13 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
+  <style>
+    table tr:nth-child(even){background-color: rgb(238, 237, 237);}
+    table tr:hover{background-color: rgb(221, 219, 219);}
+    table th, table tr{border: 1px solid rgb(146, 146, 146);}
+    table th, table tr{padding: 10px;}
+    table th{color: white; background-color: gray; text-align: center;}
+  </style>
 </head>
 
 <body>
@@ -54,14 +61,66 @@
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+ 
+<div class="main-box">
+  <div class="carrito">
+    <h2 style="text-align: center;">Carrito de compras</h2>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Nombre</th>
+          <th>Cantidad</th>
+          <th id="currency">Costo unitario en $</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody id="contenido"> </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4" style="text-align: right; font-size: larger;"><strong>Costo Total:</strong></td>
+          <td id="total" style="font-size: larger; text-align: center;"></td>
+        </tr>
+      </tfoot>
+    </table>
+    <h4>Seleccione su moneda:</h4>
+    <button type="button" class="btn-currency" onclick="conversion('dolar')" style="font-size: x-large;">U$D</button>
+    <button type="button" class="btn-currency" onclick="conversion('pesos')" style="font-size: x-large;">Pesos</button>
+
+
+  <hr>
+
+
+    <h4>Zona del envío:</h4>
+    <select name="envios" id="listaEnvio" onclick="mostrarEnvio()">
+      <option value="montevideo">Montevideo</option>
+      <option value="surDzno">Sur de Durazno</option>
+      <option value="norDzno">Norte de Durazno</option>
+    </select>
+
+
+  <hr>
+
+
+    <table>
+      <thead>
+        <tr>
+          <th>Zona de envío elegida</th>
+          <th>Días en llegar</th>
+          <th>Costo total con envío</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td id="lugar"></td>
+          <td id="tiempo"></td>
+          <td id="costo"></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+</div>
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

@@ -270,3 +270,28 @@ a.custom-card:hover {
   display: block;
   margin: auto;
 }
+
+table input{
+  border-radius: 5px;
+  border-style: double;
+}
+
+.btn-currency{
+  border: 1px solid rgb(219, 219, 219);
+  background-color: ghostwhite;
+  border-radius: 5px;
+}
+
+.btn-currency:hover{
+  background-color: azure;
+}
+
+.main-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.number {
+  width:50px;
+}
