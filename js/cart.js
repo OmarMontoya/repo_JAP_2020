@@ -52,6 +52,8 @@ function produCarrito(array){ //Se muestra en pantalla la interfaz del carrito d
 
                 <td style="text-align: center;"><span class='total' id='articuloResult${i}'>${producto}</span></td>
 
+                <td><button onclick='borrarProducto(${i})' class='btn btn-danger'>X</button></td>
+
             </tr>
             `
 
@@ -60,7 +62,6 @@ function produCarrito(array){ //Se muestra en pantalla la interfaz del carrito d
 
         if(articulo == array[1]){
 
-            //let tasa = 40;
             let producto = articulo.count * articulo.unitCost*tasa2;
 
             articCarrito +=`
@@ -77,6 +78,8 @@ function produCarrito(array){ //Se muestra en pantalla la interfaz del carrito d
 
                 <td style="text-align: center;"><span class='total' id='articuloResult${i}'>${producto}</span></td>
 
+                <td><button onclick='borrarProducto(${i})' class='btn btn-danger'>X</button></td>
+
             </tr>
             `
 
@@ -86,6 +89,7 @@ function produCarrito(array){ //Se muestra en pantalla la interfaz del carrito d
     }
     calculoTotal();
     mostrarEnvio();
+    tipoEnvio();
 }
 
 function conversion(moneda){ //Permite la conversión de moneda entre pesos y dólares
@@ -94,7 +98,7 @@ function conversion(moneda){ //Permite la conversión de moneda entre pesos y d�
 
         tasa1=0.025;
         tasa2=1;
-        document.getElementById('currency').innerHTML = 'Costo unitario en USD'
+        document.getElementById('currency').innerHTML = 'Costo unitario en U$D'
     }
 
     if(moneda == 'pesos'){
@@ -104,33 +108,145 @@ function conversion(moneda){ //Permite la conversión de moneda entre pesos y d�
         document.getElementById('currency').innerHTML = 'Costo unitario en $'
     }
     produCarrito(articArray);
+    calculoTotal();
+    tipoEnvio();
 }
 
 function mostrarEnvio(){ //se muestra en pantalla costo del envío a montevideo y el interior
 
     let zona = document.getElementById('listaEnvio').value;
     
-    if(zona == 'montevideo'){
+    switch(zona){
 
-        document.getElementById('lugar').innerHTML = 'Montevideo';
-        document.getElementById('tiempo').innerHTML = 2;
-        document.getElementById('costo').innerHTML = valorTotal*1.1;
-    }
+        case 'montevideo':
+            document.getElementById('lugar').innerHTML = 'Montevideo';
+            break;
 
-    if(zona == 'surDzno'){
+        case 'canelones':
+            document.getElementById('lugar').innerHTML = 'Canelones';
+            break;
 
-        document.getElementById('lugar').innerHTML = 'Sur de Durazno';
-        document.getElementById('tiempo').innerHTML = 4;
-        document.getElementById('costo').innerHTML = valorTotal*1.2;
-    }
+        case 'sanJose':
+            document.getElementById('lugar').innerHTML = 'San José';
+            break;
 
-    if(zona == 'norDzno'){
+        case 'maldonado':
+            document.getElementById('lugar').innerHTML = 'Maldonado';
+            break;
 
-        document.getElementById('lugar').innerHTML = 'Norte de Durazno';
-        document.getElementById('tiempo').innerHTML = 6;
-        document.getElementById('costo').innerHTML = valorTotal*1.25;
+        case 'colonia':
+            document.getElementById('lugar').innerHTML = 'Colonia';
+            break;
+
+        case 'rocha':
+            document.getElementById('lugar').innerHTML = 'Rocha';
+            break;
+            
+        case 'soriano':
+            document.getElementById('lugar').innerHTML = 'Soriano';
+            break;
+
+        case 'flores':
+            document.getElementById('lugar').innerHTML = 'Flores';
+            break;
+
+        case 'florida':
+            document.getElementById('lugar').innerHTML = 'Florida';
+            break;
+
+        case 'lavalleja':
+            document.getElementById('lugar').innerHTML = 'Lavalleja';
+            break;
+
+        case 'rioNegro':
+            document.getElementById('lugar').innerHTML = 'Río Negro';
+            break;
+
+        case 'durazno':
+            document.getElementById('lugar').innerHTML = 'Durazno';
+            break;
+
+        case 'tresTres':
+            document.getElementById('lugar').innerHTML = 'Treinta y Tres';
+            break;
+
+        case 'paysandu':
+            document.getElementById('lugar').innerHTML = 'Paysandú';
+            break;
+
+        case 'tacuarembo':
+            document.getElementById('lugar').innerHTML = 'Tacuarembó';
+            break;
+
+        case 'cerroLargo':
+            document.getElementById('lugar').innerHTML = 'Cerro Largo';
+            break;
+
+        case 'salto':
+            document.getElementById('lugar').innerHTML = 'Salto';
+            break;
+
+        case 'rivera':
+            document.getElementById('lugar').innerHTML = 'Rivera';
+            break;
+
+        case 'artigas':
+            document.getElementById('lugar').innerHTML = 'Artigas';
+            break;
     }
 }
+
+function tipoEnvio(envio){ //Calcula el tipo de envío
+  
+    if(envio==premium){
+        document.getElementById('tiempo').innerHTML = '2-5';
+        document.getElementById('costo').innerHTML = valorTotal*1.15;
+    } if (envio==express){
+        document.getElementById('tiempo').innerHTML = '5-8';
+        document.getElementById('costo').innerHTML = valorTotal*1.07;
+    } if(envio==standar){
+        document.getElementById('tiempo').innerHTML = '12-15';
+        document.getElementById('costo').innerHTML = valorTotal*1.05;
+    }
+
+}
+
+function borrarProducto(i){
+
+    if(articArray.length>1){
+        articArray.splice(i,1);
+        produCarrito(articArray);
+    } else{
+        document.getElementById('main-box').innerHTML =`
+                                                        <h2 style="text-align: center;">No quedan artículos en el carrito</h2>
+                                                        <h3 style="text-align: center;">Por favor recargue la página <a href="cart.html">acá</a></h3>
+                                                        `
+    }
+}
+
+function cargarDatos(){
+
+    let nombre = document.getElementById('nombre').value;
+    let apellido = document.getElementById('apellido').value;
+    let email = document.getElementById('email').value;
+    let telefono = document.getElementById('telefono').value;
+    let direccion = document.getElementById('direccion').value;
+    let formaPago = document.getElementById('tipoPago').value;
+    let anexo = '';
+
+    anexo =`
+            <h5>Los datos del cliente son:</h5>
+            <p>Nombre: ${nombre}</p>
+            <p>Apellido: ${apellido}</p>
+            <p>Email: ${email}</p>
+            <p>Teléfono: ${telefono}</p>
+            <p>Dirección: ${direccion}</p>
+            <p>Forma de pago: ${formaPago}</p>
+            `
+
+    document.getElementById('datos').innerHTML = anexo;
+}
+
 
 document.addEventListener("DOMContentLoaded", function(e){
 
@@ -139,6 +255,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             articArray = resultObj.data.articles;
             produCarrito(articArray);
             mostrarEnvio();
+            tipoEnvio();
         }
     })
 });

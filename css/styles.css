@@ -286,12 +286,11 @@ table input{
   background-color: azure;
 }
 
-.main-box{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .number {
   width:50px;
+}
+
+.lugar, .tiempo, .costo{
+  text-align: center;
+  font-size: larger;
 }

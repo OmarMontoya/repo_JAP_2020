@@ -32,11 +32,29 @@
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
   <style>
-    table tr:nth-child(even){background-color: rgb(238, 237, 237);}
-    table tr:hover{background-color: rgb(221, 219, 219);}
-    table th, table tr{border: 1px solid rgb(146, 146, 146);}
-    table th, table tr{padding: 10px;}
-    table th{color: white; background-color: gray; text-align: center;}
+    table tr:nth-child(even) {
+      background-color: rgb(238, 237, 237);
+    }
+
+    table tr:hover {
+      background-color: rgb(221, 219, 219);
+    }
+
+    table th,
+    table tr {
+      border: 1px solid rgb(146, 146, 146);
+    }
+
+    table th,
+    table tr {
+      padding: 10px;
+    }
+
+    table th {
+      color: white;
+      background-color: gray;
+      text-align: center;
+    }
   </style>
 </head>
 
@@ -49,7 +67,8 @@
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <div id="contenedor" style="display: none;">
         <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
             <p id="usuario"></p>
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -61,65 +80,181 @@
       </div>
     </div>
   </nav>
- 
-<div class="main-box">
-  <div class="carrito">
-    <h2 style="text-align: center;">Carrito de compras</h2>
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th>Nombre</th>
-          <th>Cantidad</th>
-          <th id="currency">Costo unitario en $</th>
-          <th>Subtotal</th>
-        </tr>
-      </thead>
-      <tbody id="contenido"> </tbody>
-      <tfoot>
-        <tr>
-          <td colspan="4" style="text-align: right; font-size: larger;"><strong>Costo Total:</strong></td>
-          <td id="total" style="font-size: larger; text-align: center;"></td>
-        </tr>
-      </tfoot>
-    </table>
-    <h4>Seleccione su moneda:</h4>
-    <button type="button" class="btn-currency" onclick="conversion('dolar')" style="font-size: x-large;">U$D</button>
-    <button type="button" class="btn-currency" onclick="conversion('pesos')" style="font-size: x-large;">Pesos</button>
 
+  <div id="main-box" class="main-box"><br>
+    <h2 style="text-align: center;">Carrito de compras</h2><br>
 
-  <hr>
+    <div class="carrito" style="display: flex; justify-content: space-around;">
+      <div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Nombre</th>
+              <th>Cantidad</th>
+              <th id="currency">Costo unitario en $</th>
+              <th colspan="2">Subtotal</th>
+            </tr>
+          </thead>
+          <tbody id="contenido"> </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4" style="text-align: right; font-size: larger;"><strong>Costo Total:</strong></td>
+              <td colspan="2" id="total" style="font-size: larger; text-align: center;"></td>
+            </tr>
+          </tfoot>
+        </table>
+        <h4>Seleccione su moneda:</h4>
+        <div style="display: flex; justify-content: space-around;">
+          <button type="button" class="btn-currency form-control" onclick="conversion('dolar')" style="font-size: x-large; width: 300px;">U$D</button>
+          <button type="button" class="btn-currency form-control" onclick="conversion('pesos')"
+            style="font-size: x-large; width: 300px;">Pesos</button>
+        </div>
+        
+        
+        <hr>
+        
+        <h4>Tipo de envío:</h4>
+        <br>
+        
+        <div style="display: flex; justify-content: space-around;">
+          <div class="btn-group btn-group-lg">
+            <button type="button" onclick="tipoEnvio(premium)" id="premium" class="btn btn-primary" style="background-color: gold; color: black;">Premium</button>
+            <button type="button" onclick="tipoEnvio(express)" id="express" class="btn btn-primary" style="background-color: lightgray; color: black;">Express</button>
+            <button type="button" onclick="tipoEnvio(standar)" id="standar" class="btn btn-primary" style="background-color: lightgreen; color: black;">Standar</button>
+          </div>
+          
+            <button style="padding: 20px; font-size: x-large; " type="button" class="btn btn-primary"
+              data-toggle="modal" data-target="#modalCompra">
+              Datos de compra
+            </button>
+        </div>
+        
+        
+          <div class="modal fade" id="modalCompra" tabindex="-1" aria-labelledby="modalCompra" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="modalLabel">Datos de compra</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
 
+                <div class="modal-body">
 
-    <h4>Zona del envío:</h4>
-    <select name="envios" id="listaEnvio" onclick="mostrarEnvio()">
-      <option value="montevideo">Montevideo</option>
-      <option value="surDzno">Sur de Durazno</option>
-      <option value="norDzno">Norte de Durazno</option>
-    </select>
+                  <form id="needs-validation" novalidate>
 
+                    <h5>Ingrese sus datos</h5>
+                    <input id="nombre" type="text" class="form-control" placeholder="Nombre" required>
+                    <div class="invalid-feedback">Por favor inserta tu nombre</div><br>
+                    <input id="apellido" type="text" class="form-control" placeholder="Apellido" required>
+                    <div class="invalid-feedback">Por favor inserta tu apellido</div><br>
+                    <input id="email" type="email" class="form-control" placeholder="Email" required>
+                    <div class="invalid-feedback">Por favor inserta tu email</div><br>
+                    <input id="telefono" type="text" class="form-control" placeholder="Teléfono" required>
+                    <div class="invalid-feedback">Por favor inserta tu teléfono</div><br>
+                    <input id="direccion" type="text" class="form-control" placeholder="Dirección" required>
+                    <div class="invalid-feedback">Por favor inserta tu dirección</div><br>
+                    <input id="pais" type="text" class="form-control" placeholder="País" required>
+                    <div class="invalid-feedback">Por favor inserta tu país</div><br>
+                    <select class="form-control" name="envios" id="listaEnvio" onchange="mostrarEnvio()">
+                      <option value="montevideo">Montevideo</option>
+                      <option value="durazno">Durazno</option>
+                      <option value="artigas">Artigas</option>
+                      <option value="canelones">Canelones</option>
+                      <option value="cerroLargo">Cerro Largo</option>
+                      <option value="colonia">Colonia</option>
+                      <option value="flores">Flores</option>
+                      <option value="florida">Florida</option>
+                      <option value="lavalleja">Lavalleja</option>
+                      <option value="maldonado">Maldonado</option>
+                      <option value="paysandu">Paysandú</option>
+                      <option value="rioNegro">Río Negro</option>
+                      <option value="rivera">Rivera</option>
+                      <option value="rocha">Rocha</option>
+                      <option value="salto">Salto</option>
+                      <option value="sanJose">San José</option>
+                      <option value="soriano">Soriano</option>
+                      <option value="tacuarembo">Tacuarembó</option>
+                      <option value="tresTres">Treinta y Tres</option>
+                    </select><br>
 
-  <hr>
+                    <h5>Tipo de pago</h5>
+                    <select class="form-control" name="tipoPago" id="tipoPago">
+                      <optgroup label="Tarj. Crédito">
+                        <option value="visa">Visa</option>
+                        <option value="mastercard">Mastercard</option>
+                        <option value="cabal">Cabal</option>
+                      </optgroup>
+                      <optgroup label="Tarj. Débito">
+                        <option value="visaElectron">Visa Electron</option>
+                        <option value="maestro">Maestro</option>
+                        <option value="cirrus">Cirrus</option>
+                      </optgroup>
+                      <optgroup label="Efectivo">
+                        <option value="abitab">Abitab</option>
+                        <option value="redPago">Red Pago</option>
+                        <option value="uruPago">URUPAGO</option>
+                      </optgroup>
+                      </select><br>
+                      <div style="display: flex; justify-content: space-around;">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-success">Confirmar compra</button>
+                      </div>
 
+                  </form>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Zona de envío elegida</th>
-          <th>Días en llegar</th>
-          <th>Costo total con envío</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td id="lugar"></td>
-          <td id="tiempo"></td>
-          <td id="costo"></td>
-        </tr>
-      </tbody>
-    </table>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+          let formValid = document.getElementById('needs-validation');
+
+          formValid.addEventListener('submit', function (event) {
+
+            if (formValid.checkValidity() === false) {
+
+              event.preventDefault();
+              event.stopPropagation();
+
+            }
+            formValid.classList.add('was-validated');
+          });
+
+        });
+
+      </script>
+
+      <div class="costoTotal">
+        <table>
+          <thead>
+            <tr>
+              <th>Zona de envío elegida</th>
+              <th>Días en llegar</th>
+              <th>Costo total con envío</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="lugar" class="lugar"></td>
+              <td id="tiempo" class="tiempo"></td>
+              <td id="costo" class="costo"></td>
+            </tr>
+          </tbody>
+        </table>
+        <div id="datos"></div>
+      </div>
+
+    </div>
+
   </div>
-</div>
 
   <div id="spinner-wrapper">
     <div class="lds-ring">
