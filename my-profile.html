@@ -54,26 +54,45 @@
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+<br>
+  
+    <div class="container shadow-lg p-3 mb-5 bg-white rounded" id="perfil">
+      <h2 class="text-center">Mi Perfil</h2>
+      <p class="text-center">Aquí se guardan tus datos</p>
+        <div>
+          <div class="d-flex justify-content-center">
+            <img id="imgProfile" class="img" src="img/profile.jpg" alt="">
+          </div><hr>
+          <input class='form-control' type="text" id="urlImg" value="" placeholder="Inserte la URL de la imagen de perfil">
+        </div><br>
+        <div class="row">
+          <div class="col-6">
+            <input class="form-control" type="text" id="nombres" value="" placeholder="Nombres">
+          </div>
+          <div class="col-6">
+            <input class="form-control" type="text" id="apellidos" value="" placeholder="Apellidos">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-3">
+            <input class="form-control" type="number" id="edad" value="" placeholder="Edad">
+          </div>
+          <div class="col-9">
+            <input class="form-control" type="email" id="email" value="" placeholder="Email">
+          </div>
+        </div>
+        <br>
+        <input class="form-control" type="text" id="telefono" value="" placeholder="Teléfono">
+        <hr>
+        <div class="d-flex justify-content-center">
+          <button id="aceptar" class="btn btn-primary" style="font-size: x-large; padding: 15px;">Aceptar cambios</button>
+        </div>
     </div>
-  </div>
-  <footer class="text-muted bg-light">
-    <div class="container">
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-    </div>
-  </footer>
-  <div class="alert fade alert-success" role="alert" id="alertResult">
-    <span id="resultSpan"></span>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
+
+
+  
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

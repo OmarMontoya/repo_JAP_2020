@@ -22,23 +22,22 @@ function mostrarListaAutos(array){
 
         if ((buscar == undefined) || (lista.name.toLowerCase().indexOf(buscar) != -1)) {
 
-            contenidoNuevo +=`
-            <a href='product-info.html' class=" list-group-item-action">
-            <div class="main">
-            <div class="caja-img">
-                <img class="imagen" src="`+ lista.imgSrc +`" alt="">
-            </div> 
-            <div class="caja-text">
-                <p><strong>Nombre: </strong>`+ lista.name +`</p>
-                <p><strong>Descripción: </strong>`+ lista.description +`</p>
-                <p><strong>Costo: </strong>`+ lista.cost +`</p> 
-                <p><strong>Moneda: </strong>`+ lista.currency +`</p>
-            </div>
-            <div class="caja-sold">
-                <small>Cantidad vendida: `+ lista.soldCount +`</small>
-            </div>
-            </div>
-            </a>
+            contenidoNuevo +=`<div class='d-flex justify-content-center'>
+                            <div class='col-sm-12 col-lg-6'>
+                            <div class="card my-3 shadow-lg p-3 mb-5 bg-white rounded" style="width: 25rem;">
+                                <a href='product-info.html' class=" list-group-item-action">
+                                <img class="card-img-top" src="${lista.imgSrc}" alt="Imagen de auto">
+                                <div class="card-body">
+                                    <h5 class="card-title">${lista.name}</h5>
+                                    <p><strong>Descripción: </strong>${lista.description}</p>
+                                    <p><strong>Costo: </strong>${lista.cost}</p> 
+                                    <p><strong>Moneda: </strong>${lista.currency}</p>
+                                    <small>Cantidad vendida: ${lista.soldCount}</small>
+                                </div>
+                                </a>
+                            </div>
+                            </div>
+                            </div>
             `
 
         }

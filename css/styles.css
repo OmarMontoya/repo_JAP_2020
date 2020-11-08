@@ -198,7 +198,7 @@ a.custom-card:hover {
   margin: 6px;
   border-radius: 5px;
   padding: 3px;
-  width: 100px;
+  width: 180px;
 }
 
 .btn-filter {
@@ -294,3 +294,16 @@ table input{
   text-align: center;
   font-size: larger;
 }
+
+#perfil{
+  width: 500px;
+  background-color: lightgray;
+  padding: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.img{
+  width: 150px;
+}
+

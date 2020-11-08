@@ -37,33 +37,44 @@
     </div>
   </nav>
 
-  <!--Se procede a eliminar el texto con la fecha de entrega y se inserta lo referente a los productos-->
-  <h2 class="titulo">
-    Productos
-  </h2>
-  <p class="parrafo">
-    Verás aquí todos los productos de la lista Autos
-  </p>
-  <br>
-  <div class="caja-main">
-    <div class="filtro">
-      <div class="filtro-1">
-        <input type="button" id="Costo-Desc" class="btn-filter" value="Costo Desc">
-        <input type="button" id="Costo-Asc" class="btn-filter" value="Costo Asc">
-        <input type="button" id="Cant-Vend-Desc" class="btn-filter" value="Cant Vend Desc">
-      </div>
-      <div class="filtro-2">
-        <input id="buscador" class="filtro-2-2" type="text">
-        <input id="borrar" class="filtro-2-2 btn-filter-2" type="button" value="Borrar">
-        <input id="minimo" class="filtro-2-2" type="number" placeholder="mínimo" min="1"/>
-        <input id="maximo" class="filtro-2-2" type="number" placeholder="máximo" min="1"/>
-        <input id="filtrar" class="filtro-2-2 btn-filter-2" type="button" value="Filtrar" />
-        <input id="limpiar" class="filtro-2-2 btn-filter-2" type="button" value="Limpiar" />
-      </div>
-    </div>
-    <div id="caja" class="container p-5">
+  
+  <div class='container'>
+      <h2 class="text-center">
+        Productos
+      </h2>
+    <p class="text-center">
+      Verás aquí todos los productos de la lista Autos
+    </p>
+    <br>
+      <div class="row" style="background-color: rgb(236, 244, 250);">
+        <div class="col text-center py-2 px-2 border">
+          <button id="Costo-Desc" class="btn btn-info">
+            Costo Desc <i class="fas fa-sort-amount-down"></i>
+          </button><br><br>
+          <button id="Costo-Asc" class="btn btn-info">
+            Costo Asc <i class="fas fa-sort-amount-up"></i>
+          </button><br><br>
+          <button id="Cant-Vend-Desc" class="btn btn-info">
+            Cant Vend Desc <i class="fas fa-sort-numeric-down"></i>
+          </button>
+        </div>
+        <div class="col-sm-12 col-lg-4 text-center py-2 px-2 border">
+          <label for="buscador">Búsqueda rápida</label>
+          <input id="buscador" class="form-control" type="text">
+          <input id="borrar" class="filtro-2-2 btn-filter-2" type="button" value="Borrar">
+        </div>
+        <div class="col text-center py-2 px-2 border">
+          <input id="minimo" class="form-control" type="number" placeholder="mínimo" min="1"/><br>
+          <input id="maximo" class="form-control" type="number" placeholder="máximo" min="1"/><br>
+          <input id="filtrar" class="btn-filter-2" type="button" value="Filtrar" />
+          <input id="limpiar" class=" btn-filter-2" type="button" value="Limpiar" />
+        </div>
+      </div><br>
+    
+    <div id="caja" class="row">
   
     </div>
+  </div>
   </div>
   
   <footer class="text-muted bg-light">
