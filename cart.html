@@ -86,7 +86,7 @@
 
     <div class="carrito" style="display: flex; justify-content: space-around;">
       <div>
-        <table class="table">
+        <table class="table shadow-lg p-3 mb-5 bg-white rounded">
           <thead>
             <tr>
               <th></th>
@@ -110,6 +110,31 @@
           <button type="button" class="btn-currency form-control" onclick="conversion('pesos')"
             style="font-size: x-large; width: 300px;">Pesos</button>
         </div>
+
+        <hr>
+
+        <h4>Lugar de envío</h4>
+        <select class="form-control" name="envios" id="listaEnvio" onchange="mostrarEnvio()">
+          <option value="montevideo">Montevideo</option>
+          <option value="durazno">Durazno</option>
+          <option value="artigas">Artigas</option>
+          <option value="canelones">Canelones</option>
+          <option value="cerroLargo">Cerro Largo</option>
+          <option value="colonia">Colonia</option>
+          <option value="flores">Flores</option>
+          <option value="florida">Florida</option>
+          <option value="lavalleja">Lavalleja</option>
+          <option value="maldonado">Maldonado</option>
+          <option value="paysandu">Paysandú</option>
+          <option value="rioNegro">Río Negro</option>
+          <option value="rivera">Rivera</option>
+          <option value="rocha">Rocha</option>
+          <option value="salto">Salto</option>
+          <option value="sanJose">San José</option>
+          <option value="soriano">Soriano</option>
+          <option value="tacuarembo">Tacuarembó</option>
+          <option value="tresTres">Treinta y Tres</option>
+        </select><br>
         
         
         <hr>
@@ -119,9 +144,9 @@
         
         <div style="display: flex; justify-content: space-around;">
           <div class="btn-group btn-group-lg">
-            <button type="button" onclick="tipoEnvio(premium)" id="premium" class="btn btn-primary" style="background-color: gold; color: black;">Premium</button>
-            <button type="button" onclick="tipoEnvio(express)" id="express" class="btn btn-primary" style="background-color: lightgray; color: black;">Express</button>
-            <button type="button" onclick="tipoEnvio(standar)" id="standar" class="btn btn-primary" style="background-color: lightgreen; color: black;">Standar</button>
+            <button type="button" onclick="tipoEnvio('premium')" id="premium" class="btn btn-primary" style="background-color: gold; color: black;">Premium</button>
+            <button type="button" onclick="tipoEnvio('express')" id="express" class="btn btn-primary" style="background-color: lightgray; color: black;">Express</button>
+            <button type="button" onclick="tipoEnvio('standar')" id="standar" class="btn btn-primary" style="background-color: lightgreen; color: black;">Standar</button>
           </div>
           
             <button style="padding: 20px; font-size: x-large; " type="button" class="btn btn-primary"
@@ -146,10 +171,16 @@
                   <form id="needs-validation" novalidate>
 
                     <h5>Ingrese sus datos</h5>
-                    <input id="nombre" type="text" class="form-control" placeholder="Nombre" required>
-                    <div class="invalid-feedback">Por favor inserta tu nombre</div><br>
-                    <input id="apellido" type="text" class="form-control" placeholder="Apellido" required>
-                    <div class="invalid-feedback">Por favor inserta tu apellido</div><br>
+                    <div class="row">
+                      <div class="col-6">
+                        <input id="nombre" type="text" class="form-control" placeholder="Nombre" required>
+                        <div class="invalid-feedback">Por favor inserta tu nombre</div>
+                      </div>
+                      <div class="col-6">
+                        <input id="apellido" type="text" class="form-control" placeholder="Apellido" required>
+                        <div class="invalid-feedback">Por favor inserta tu apellido</div>
+                      </div>
+                    </div><br>
                     <input id="email" type="email" class="form-control" placeholder="Email" required>
                     <div class="invalid-feedback">Por favor inserta tu email</div><br>
                     <input id="telefono" type="text" class="form-control" placeholder="Teléfono" required>
@@ -158,27 +189,7 @@
                     <div class="invalid-feedback">Por favor inserta tu dirección</div><br>
                     <input id="pais" type="text" class="form-control" placeholder="País" required>
                     <div class="invalid-feedback">Por favor inserta tu país</div><br>
-                    <select class="form-control" name="envios" id="listaEnvio" onchange="mostrarEnvio()">
-                      <option value="montevideo">Montevideo</option>
-                      <option value="durazno">Durazno</option>
-                      <option value="artigas">Artigas</option>
-                      <option value="canelones">Canelones</option>
-                      <option value="cerroLargo">Cerro Largo</option>
-                      <option value="colonia">Colonia</option>
-                      <option value="flores">Flores</option>
-                      <option value="florida">Florida</option>
-                      <option value="lavalleja">Lavalleja</option>
-                      <option value="maldonado">Maldonado</option>
-                      <option value="paysandu">Paysandú</option>
-                      <option value="rioNegro">Río Negro</option>
-                      <option value="rivera">Rivera</option>
-                      <option value="rocha">Rocha</option>
-                      <option value="salto">Salto</option>
-                      <option value="sanJose">San José</option>
-                      <option value="soriano">Soriano</option>
-                      <option value="tacuarembo">Tacuarembó</option>
-                      <option value="tresTres">Treinta y Tres</option>
-                    </select><br>
+                    
 
                     <h5>Tipo de pago</h5>
                     <select class="form-control" name="tipoPago" id="tipoPago">
@@ -199,8 +210,8 @@
                       </optgroup>
                       </select><br>
                       <div style="display: flex; justify-content: space-around;">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-success">Confirmar compra</button>
+                        <button type="button" style="padding: 15px;" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button id="confirmar" type="button" style="padding: 15px;" data-dismiss="modal" class="btn btn-success">Confirmar compra</button>
                       </div>
 
                   </form>

@@ -4,6 +4,7 @@ var valorTotal = '';
 var tasa1 = 1;
 var tasa2 = 40;
 var currency = '';
+var modal = document.getElementById('confirmar');
 
 function calculoTotal(){    //Se calcula el monto total de los artículos en el carrito
 
@@ -15,6 +16,7 @@ function calculoTotal(){    //Se calcula el monto total de los artículos en el 
     }
     valorTotal = suma;
     document.getElementById('total').innerHTML = suma;
+    document.getElementById('costo').innerHTML = valorTotal;
 }
 
 function calculoSubTotal(costoUnit, i){ //Se calcula el subtotal de cada artículo
@@ -89,7 +91,7 @@ function produCarrito(array){ //Se muestra en pantalla la interfaz del carrito d
     }
     calculoTotal();
     mostrarEnvio();
-    tipoEnvio();
+
 }
 
 function conversion(moneda){ //Permite la conversión de moneda entre pesos y dólares
@@ -194,17 +196,19 @@ function mostrarEnvio(){ //se muestra en pantalla costo del envío a montevideo 
             document.getElementById('lugar').innerHTML = 'Artigas';
             break;
     }
+    
+    calculoTotal();    
 }
 
 function tipoEnvio(envio){ //Calcula el tipo de envío
   
-    if(envio==premium){
+    if(envio=='premium'){
         document.getElementById('tiempo').innerHTML = '2-5';
         document.getElementById('costo').innerHTML = valorTotal*1.15;
-    } if (envio==express){
+    } if (envio=='express'){
         document.getElementById('tiempo').innerHTML = '5-8';
         document.getElementById('costo').innerHTML = valorTotal*1.07;
-    } if(envio==standar){
+    } if(envio=='standar'){
         document.getElementById('tiempo').innerHTML = '12-15';
         document.getElementById('costo').innerHTML = valorTotal*1.05;
     }
@@ -224,29 +228,6 @@ function borrarProducto(i){
     }
 }
 
-function cargarDatos(){
-
-    let nombre = document.getElementById('nombre').value;
-    let apellido = document.getElementById('apellido').value;
-    let email = document.getElementById('email').value;
-    let telefono = document.getElementById('telefono').value;
-    let direccion = document.getElementById('direccion').value;
-    let formaPago = document.getElementById('tipoPago').value;
-    let anexo = '';
-
-    anexo =`
-            <h5>Los datos del cliente son:</h5>
-            <p>Nombre: ${nombre}</p>
-            <p>Apellido: ${apellido}</p>
-            <p>Email: ${email}</p>
-            <p>Teléfono: ${telefono}</p>
-            <p>Dirección: ${direccion}</p>
-            <p>Forma de pago: ${formaPago}</p>
-            `
-
-    document.getElementById('datos').innerHTML = anexo;
-}
-
 
 document.addEventListener("DOMContentLoaded", function(e){
 
@@ -255,7 +236,32 @@ document.addEventListener("DOMContentLoaded", function(e){
             articArray = resultObj.data.articles;
             produCarrito(articArray);
             mostrarEnvio();
-            tipoEnvio();
         }
+    })
+
+    modal.addEventListener('click', function(){
+
+        let nombre = document.getElementById('nombre').value;
+        let apellido = document.getElementById('apellido').value;
+        let email = document.getElementById('email').value;
+        let telefono = document.getElementById('telefono').value;
+        let direccion = document.getElementById('direccion').value;
+        let formaPago = document.getElementById('tipoPago').value;
+        let anexo = '';
+
+        anexo =`
+                <br><hr>
+                    <div class="container shadow-lg p-3 mb-5 bg-white rounded">
+                        <h5>Los datos del cliente son:</h5>
+                        <p><strong>Nombre:</strong> ${nombre}</p>
+                        <p><strong>Apellido:</strong> ${apellido}</p>
+                        <p><strong>Email:</strong> ${email}</p>
+                        <p><strong>Teléfono:</strong> ${telefono}</p>
+                        <p><strong>Dirección:</strong> ${direccion}</p>
+                        <p><strong>Forma de pago:</strong> ${formaPago}</p>
+                    </div>
+                `
+
+        document.getElementById('datos').innerHTML = anexo;
     })
 });

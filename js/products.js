@@ -7,7 +7,7 @@ const ASCENDENTE = 'Asc';
 const SOLD_DESCENDENTE = 'Sold_Desc';
 
 
-function mostrarListaAutos(array){
+function mostrarListaAutos(array){ //función que permiter visualizar el listado de autos en la ventana de productos
 
     let contenidoNuevo = "";
     for(let i = 0; i < array.length; i++){
@@ -22,21 +22,22 @@ function mostrarListaAutos(array){
 
         if ((buscar == undefined) || (lista.name.toLowerCase().indexOf(buscar) != -1)) {
 
-            contenidoNuevo +=`<div class='d-flex justify-content-center'>
-                            <div class='col-sm-12 col-lg-6'>
-                            <div class="card my-3 shadow-lg p-3 mb-5 bg-white rounded" style="width: 25rem;">
-                                <a href='product-info.html' class=" list-group-item-action">
-                                <img class="card-img-top" src="${lista.imgSrc}" alt="Imagen de auto">
-                                <div class="card-body">
-                                    <h5 class="card-title">${lista.name}</h5>
-                                    <p><strong>Descripción: </strong>${lista.description}</p>
-                                    <p><strong>Costo: </strong>${lista.cost}</p> 
-                                    <p><strong>Moneda: </strong>${lista.currency}</p>
-                                    <small>Cantidad vendida: ${lista.soldCount}</small>
+            contenidoNuevo +=`
+                            <div class='d-flex justify-content-center'>
+                                <div class='col-sm-12 col-lg-6'>
+                                    <div class="card my-3 shadow-lg p-3 mb-5 bg-white rounded" style="width: 25rem;">
+                                        <a href='product-info.html' class=" list-group-item-action">
+                                        <img class="card-img-top" src="${lista.imgSrc}" alt="Imagen de auto">
+                                        <div class="card-body">
+                                            <h5 class="card-title">${lista.name}</h5>
+                                            <p><strong>Descripción: </strong>${lista.description}</p>
+                                            <p><strong>Costo: </strong>${lista.cost}</p> 
+                                            <p><strong>Moneda: </strong>${lista.currency}</p>
+                                            <small>Cantidad vendida: ${lista.soldCount}</small>
+                                        </div>
+                                        </a>
+                                    </div>
                                 </div>
-                                </a>
-                            </div>
-                            </div>
                             </div>
             `
 
